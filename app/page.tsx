@@ -239,6 +239,59 @@ export default function HomePage() {
   type="application/ld+json"
   dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
 />
+      {/* LocalBusiness (for maps & local intent) */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      name: "Chesterfield Property Management",
+      image: "/logo.svg",
+      url: (process.env.NEXT_PUBLIC_SITE_URL || "https://<your-vercel-domain>"),
+      telephone: "+1-519-722-3378",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "161 Victoria Street South",
+        addressLocality: "Kitchener",
+        addressRegion: "ON",
+        postalCode: "N2G 2B7",
+        addressCountry: "CA",
+      },
+      areaServed: ["Kitchener", "Waterloo", "Cambridge", "Guelph"],
+      priceRange: "$$",
+    }),
+  }}
+/>
+
+{/* FAQPage (matches your FAQ section) */}
+<script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{
+    __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Do you really charge no leasing fee?",
+          acceptedAnswer: { "@type": "Answer", text: "Yes. You pay only monthly management when rent is collected—aligning incentives for long-term tenancy quality." }
+        },
+        {
+          "@type": "Question",
+          name: "What’s included in management?",
+          acceptedAnswer: { "@type": "Answer", text: "Leasing & marketing, screening, rent collection, maintenance coordination, legal notices, statements/tax package, and compliance." }
+        },
+        {
+          "@type": "Question",
+          name: "Do you require a long-term contract?",
+          acceptedAnswer: { "@type": "Answer", text: "Month-to-month with 30-day notice; we earn retention by performance." }
+        }
+      ]
+    }),
+  }}
+/>
+
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-ink/75 backdrop-blur border-b border-white/10">
