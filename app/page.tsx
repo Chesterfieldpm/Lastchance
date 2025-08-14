@@ -235,11 +235,10 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-ink text-white">
-      <script
-        type="application/ld+json"
-        // @ts-expect-error: JSON-LD injection
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+     <script
+  type="application/ld+json"
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+/>
 
       {/* Header */}
       <header className="sticky top-0 z-50 bg-ink/75 backdrop-blur border-b border-white/10">
